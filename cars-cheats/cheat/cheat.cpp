@@ -13,9 +13,9 @@ Cheat::Cheat(const char* processName) : mem(processName) {
 			CarsOffsets::score_base,
 			CarsOffsets::score_offsets
 		);
-		car_x_ptr = mem.GetPointerAddress(mem.GetModuleAddress(processName), 0x003C5920, CarsOffsets::player_x);
-		car_y_ptr = mem.GetPointerAddress(mem.GetModuleAddress(processName), 0x003C5920, CarsOffsets::player_y);
-		car_z_ptr = mem.GetPointerAddress(mem.GetModuleAddress(processName), 0x003C5920, CarsOffsets::player_z);
+		car_x_ptr = mem.GetPointerAddress(mem.GetModuleAddress(processName), 0x003C5920, CarsOffsets::player_x_offset);
+		car_y_ptr = mem.GetPointerAddress(mem.GetModuleAddress(processName), 0x003C5920, CarsOffsets::player_y_offset);
+		car_z_ptr = mem.GetPointerAddress(mem.GetModuleAddress(processName), 0x003C5920, CarsOffsets::player_z_offset);
 
 		std::cout << "Cheat initialized!" << std::endl;
 		initialized = true;
