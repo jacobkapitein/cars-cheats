@@ -2,16 +2,20 @@
 #include <iostream>
 #include "memory.h"
 #include "cheat.h"
+#include "offsets.h"
 
 Cheat::Cheat(const char* processName) : mem(processName) {
 		if (!mem.GetProcessHandle())
 			return;
-
 		//scorepointer = mem.GetPointerAddress(mem.GetModuleAddress(processName), 0x003B6B2C, { 0xF8, 0xD8, 0x0, 0x10, 0x84, 0x124, 0x160 });
-		scorepointer = mem.GetPointerAddress(mem.GetModuleAddress(processName), 0x003C73A4, { 0x2C, 0x130, 0x10, 0x8C, 0x124, 0x160 });
-		car_x_ptr = mem.GetPointerAddress(mem.GetModuleAddress(processName), 0x003C5920, { 0x50 });
-		car_y_ptr = mem.GetPointerAddress(mem.GetModuleAddress(processName), 0x003C5920, { 0x54 });
-		car_z_ptr = mem.GetPointerAddress(mem.GetModuleAddress(processName), 0x003C5920, { 0x58 });
+		scorepointer = mem.GetPointerAddress(
+			mem.GetModuleAddress(processName),
+			CarsOffsets::score_base,
+			CarsOffsets::score_offsets
+		);
+		car_x_ptr = mem.GetPointerAddress(mem.GetModuleAddress(processName), 0x003C5920, CarsOffsets::player_x);
+		car_y_ptr = mem.GetPointerAddress(mem.GetModuleAddress(processName), 0x003C5920, CarsOffsets::player_y);
+		car_z_ptr = mem.GetPointerAddress(mem.GetModuleAddress(processName), 0x003C5920, CarsOffsets::player_z);
 
 		std::cout << "Cheat initialized!" << std::endl;
 		initialized = true;
