@@ -32,5 +32,8 @@
     <ClInclude Include="cheat\cheat.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="cheat\offsets.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

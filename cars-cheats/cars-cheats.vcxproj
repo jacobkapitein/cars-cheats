@@ -139,6 +139,7 @@
     <ClInclude Include="cheat\cheat.cpp" />
     <ClInclude Include="cheat\cheat.h" />
     <ClInclude Include="cheat\memory.h" />
+    <ClInclude Include="cheat\offsets.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
